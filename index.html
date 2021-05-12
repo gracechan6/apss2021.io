@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2021亚太可持续包装峰会</title>
+  <script type="text/javascript" src="./code.js"></script>
+
+  <script type="text/javascript">
+    var cw = document.documentElement.clientWidth;
+    document.getElementsByTagName("html")[0].style.fontSize = 12 * (cw / 1920) + 'px';
+    window.pxTimes = 12 * (cw / 1920);
+  </script>
+  <style>
+    .itemCenter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    html,
+    body,
+    .page1,
+    .page1 .bg,
+    .page2 {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+
+    /* page1 style */
+    .bg {
+      overflow: hidden;
+      background: url(./assets/beijing_1.png);
+    }
+
+    .bg img {
+      height: 100%;
+    }
+
+    .page1 .content {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .content .banner {
+      margin-top: 10%;
+    }
+
+    .content .banner img {
+      width: 124.17rem;
+      height: 13.92rem;
+    }
+
+    .content .input-div {
+      margin-top: 6%;
+      width: 586px;
+      height: 136px;
+      background: url('./assets/denglubeijingkuang.png');
+    }
+
+    .content .input-div .bg-input {
+      background: url('./assets/shurukuang.png');
+      width: 482px;
+      height: 60px;
+    }
+
+    .content .input-div .bg-input input {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      background-color: transparent;
+      border: none;
+      font-family: PingFangSC-Semibold;
+      font-size: 20px;
+      color: #fff;
+      font-weight: 600;
+      padding: 17px 11px 15px 11px;
+    }
+
+    .content .input-div .bg-input input:focus {
+      border: none;
+      outline: none;
+    }
+
+    input::-webkit-input-placeholder {
+      color: rgba(255, 255, 255, 0.80);
+      ;
+    }
+
+    input::-moz-input-placeholder {
+      color: rgba(255, 255, 255, 0.80);
+      ;
+    }
+
+    input::-ms-input-placeholder {
+      color: rgba(255, 255, 255, 0.80);
+      ;
+    }
+
+    .click-div {
+      cursor: pointer;
+      width: 122px;
+      height: 68px;
+      margin-top: 100px;
+    }
+  </style>
+
+  <style>
+    /* page2 style */
+
+    .page2 {
+      display: none;
+      align-items: center;
+      flex-direction: column;
+      background: #F5F5F5;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .page2 .banner {
+      height: 363px;
+    }
+
+    .page2 .tab-title {
+      margin-top: 10px;
+      margin-bottom: 12px;
+      width: 1234px;
+      height: 107px;
+      display: flex;
+    }
+
+    .page2 .tab-title .tab-single {
+      cursor: pointer;
+    }
+
+    .page2 .content {
+      /* height: calc(100% - 492px);
+      min-height: 200px;
+      overflow-y: auto;
+      overflow-x: hidden; */
+      width: 1200px;
+      background: #FFFFFF;
+      box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
+      font-family: PingFangSC-Semibold;
+      font-size: 20px;
+      color: #333333;
+      font-weight: 600;
+      flex-direction: column;
+    }
+
+    .page2 .content .content-single {
+      display: flex;
+      margin: 1.5% 1.7%;
+      width: 100%;
+    }
+
+    .page2 .content .content-single img {
+      width: 30px;
+      height: 23px;
+      margin-right: 0.6%;
+    }
+
+    .right-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .right-content div {
+      display: flex;
+      flex-direction: column;
+    }
+    .right-content .text{
+      line-height: 31px;
+    }
+
+    .right-content .download {
+      margin-top: 0.5%;
+    }
+
+    .right-content a {
+      text-decoration: none;
+      font-family: PingFangSC-Medium;
+      font-size: 16px;
+      color: #1782E8;
+      font-weight: 500;
+      line-height: 22px;
+    }
+    .content .content-single:last-child{
+      margin-bottom: 100px;
+    }
+
+    #content1 {
+      display: flex;
+    }
+
+    #content2 {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page1" id="page1">
+    <div class="bg itemCenter">
+      <img src="./assets/beijing_2.png" />
+    </div>
+    <div class="content">
+      <div class="banner">
+        <img src="./assets/wenzi.png" />
+      </div>
+      <div class="input-div itemCenter">
+        <div class="bg-input itemCenter">
+          <input id="codeInput" type="text" placeholder="Please enter the login code/请输入登录码"
+            onkeydown="onInputEnter(event);" />
+        </div>
+      </div>
+      <div class="click-div">
+        <img src="./assets/dianji.png" onclick="turnPage();" />
+      </div>
+    </div>
+  </div>
+
+  <div class="page2" id="page2">
+    <div class="banner">
+      <img src="./assets/banner.png">
+    </div>
+    <div class="tab-title">
+      <div class="tab-single">
+        <img src="./assets/diyitian_sel.png" id="tab1" onclick="changeTab(1);">
+      </div>
+      <div class="tab-single">
+        <img src="./assets/diertian_nor.png" id="tab2" onclick="changeTab(2);">
+      </div>
+    </div>
+    <div class="content" id="content1">
+    </div>
+    <div class="content" id="content2">
+
+    </div>
+
+  </div>
+
+  <!-- <img class="title-img" src="./assets/wenzi.png" /> -->
+
+  <script type="text/javascript">
+    // page1 action
+    function onInputEnter(e) {
+      var evt = window.event || e;
+      if (evt.keyCode == 13) {
+        //回车后要干的业务代码
+        turnPage();
+      }
+    }
+
+    function turnPage() {
+      var value = document.getElementById("codeInput").value;
+      if (value == validCode) {
+        document.getElementById("page1").style.display = 'none';
+        document.getElementById("page2").style.display = 'flex';
+      } else {
+        alert("验证失败，请再次确认下登录码！");
+      }
+    }
+  </script>
+
+  <script type="text/javascript">
+    var curTab = 1;
+    // page2 action
+    function changeTab(nextTab) {
+      if (curTab != nextTab) {
+        curTab = nextTab;
+        if (curTab == 1) {
+          document.getElementById("tab1").src = "./assets/diyitian_sel.png";
+          document.getElementById("tab2").src = "./assets/diertian_nor.png";
+          document.getElementById("content1").style.display = "flex";
+          document.getElementById("content2").style.display = "none";
+
+        } else {
+          document.getElementById("tab1").src = "./assets/diyitian_nor.png";
+          document.getElementById("tab2").src = "./assets/diertian_sel.png";
+          document.getElementById("content1").style.display = "none";
+          document.getElementById("content2").style.display = "flex";
+        }
+      }
+    }
+
+    function loadData() {
+      // load day1 data
+      loadDayData(1);
+
+      //load day2 data
+      loadDayData(2);
+    }
+
+    function loadDayData(day) {
+      var curDay = eval("day" + day);
+      var keys = Object.keys(curDay);
+      // （每个标题下面上传四个文件：录音文件点击下载 / 演讲PPT点击下载 / Download for recording / Download for presentation slides)
+
+      /* 
+      
+      <div class="content-single">
+        <img src="./assets/tubiao.png">
+        <div class="right-content">
+          <div class="text">
+            <span>9:00 Policy Trends to Promote Sustainable Packaging in China</span>
+            <span>促进中国可持续包装的政策发展</span>
+          </div>
+          <div class="download">
+            <a href="./download/1.mp3" download="1.mp3">Download for recording</a>
+            <a href="./download/1.ppt" download="1.ppt">Download for ppt</a>
+          </div>
+        </div>
+      </div>
+      
+      */
+      var parentNode = document.getElementById("content" + day);
+      for (let i = 0, il = keys.length; i < il; i += 1) {
+        let item = curDay[keys[i]];
+        let text = item.text;
+        let subtext = item.subtext;
+        let record = item.download.record;
+        let ppt = item.download.ppt;
+        let recordEN = item.download.recordEN;
+        let pptEN = item.download.pptEN;
+
+        let parentDiv = document.createElement("div");
+        let parentDivAttr = document.createAttribute("class");
+        parentDivAttr.value = "content-single";
+        parentDiv.setAttributeNode(parentDivAttr);
+
+        let img = document.createElement("img");
+        img.src = "./assets/tubiao.png";
+        parentDiv.appendChild(img);
+
+        let childDiv = document.createElement("div");
+        let childDivAttr = document.createAttribute("class");
+        childDivAttr.value = "right-content";
+        childDiv.setAttributeNode(childDivAttr);
+
+        let textDiv = document.createElement("div");
+        let textDivAttr = document.createAttribute("class");
+        textDivAttr.value = "text";
+        textDiv.setAttributeNode(textDivAttr);
+        textDiv.innerHTML='<span>'+text+'</span>'+'<span>'+subtext+'</span>';
+        childDiv.appendChild(textDiv);
+
+
+        let dnDiv = document.createElement("div");
+        let dnDivAttr = document.createAttribute("class");
+        dnDivAttr.value = "download";
+        dnDiv.setAttributeNode(dnDivAttr);
+
+        let dnHtml='';
+        if(record){
+          dnHtml+='<a target="_blank"  href="./download/'+record+'" download="'+record+'">录音文件点击下载</a>';
+        }
+        if(ppt){
+          dnHtml+='<a target="_blank"  href="./download/'+ppt+'" download="'+ppt+'">演讲PPT点击下载</a>';
+        }
+        if(recordEN){
+          dnHtml+='<a target="_blank"  href="./download/'+recordEN+'" download="'+recordEN+'">Download for recording</a>';
+        }
+        if(pptEN){
+          dnHtml+='<a target="_blank"  href="./download/'+pptEN+'" download="'+pptEN+'">Download for presentation slides</a>';
+        }
+        dnDiv.innerHTML=dnHtml;
+        childDiv.appendChild(dnDiv);
+
+        parentDiv.appendChild(childDiv);
+        parentNode.appendChild(parentDiv);
+        
+      }
+    }
+
+    loadData();
+  </script>
+</body>
+
+</html>
