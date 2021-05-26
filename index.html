@@ -133,6 +133,10 @@
       height: 363px;
     }
 
+    .page2 .banner img {
+      max-width: 100%;
+    }
+
     .page2 .tab-title {
       margin-top: 10px;
       margin-bottom: 12px;
@@ -181,7 +185,8 @@
       display: flex;
       flex-direction: column;
     }
-    .right-content .text{
+
+    .right-content .text {
       line-height: 31px;
     }
 
@@ -189,7 +194,7 @@
       margin-top: 0.5%;
     }
 
-    .right-content a {
+    .right-content a,.right-content p {
       text-decoration: none;
       font-family: PingFangSC-Medium;
       font-size: 16px;
@@ -197,7 +202,12 @@
       font-weight: 500;
       line-height: 22px;
     }
-    .content .content-single:last-child{
+    .right-content p{
+      color:silver;
+      margin: 0;
+    }
+
+    .content .content-single:last-child {
       margin-bottom: 100px;
     }
 
@@ -214,7 +224,7 @@
 <body>
   <div class="page1" id="page1">
     <div class="bg itemCenter">
-      <img src="./assets/beijing_2.png" />
+     <!--  <img src="./assets/beijing_2.png" /> -->
     </div>
     <div class="content">
       <div class="banner">
@@ -354,7 +364,7 @@
         let textDivAttr = document.createAttribute("class");
         textDivAttr.value = "text";
         textDiv.setAttributeNode(textDivAttr);
-        textDiv.innerHTML='<span>'+text+'</span>'+'<span>'+subtext+'</span>';
+        textDiv.innerHTML = '<span>' + text + '</span>' + '<span>' + subtext + '</span>';
         childDiv.appendChild(textDiv);
 
 
@@ -363,25 +373,29 @@
         dnDivAttr.value = "download";
         dnDiv.setAttributeNode(dnDivAttr);
 
-        let dnHtml='';
-        if(record){
-          dnHtml+='<a target="_blank"  href="./download/'+record+'" download="'+record+'">录音文件点击下载</a>';
+        let dnHtml = '';
+        if (record) {
+          dnHtml += '<a target="_blank"  href="./download/' + record + '" download="' + record + '">录音文件点击下载</a>';
         }
-        if(ppt){
-          dnHtml+='<a target="_blank"  href="./download/'+ppt+'" download="'+ppt+'">演讲PPT点击下载</a>';
+        if (ppt) {
+          dnHtml += '<a target="_blank"  href="./download/' + ppt + '" download="' + ppt + '">演讲PPT点击下载</a>';
+        }else{
+          dnHtml += '<p>幻灯片文件不允许被下载</p>';
         }
-        if(recordEN){
-          dnHtml+='<a target="_blank"  href="./download/'+recordEN+'" download="'+recordEN+'">Download for recording</a>';
+        if (recordEN) {
+          dnHtml += '<a target="_blank"  href="./download/' + recordEN + '" download="' + recordEN + '">Download for recording</a>';
         }
-        if(pptEN){
-          dnHtml+='<a target="_blank"  href="./download/'+pptEN+'" download="'+pptEN+'">Download for presentation slides</a>';
+        if (pptEN) {
+          dnHtml += '<a target="_blank"  href="./download/' + pptEN + '" download="' + pptEN + '">Download for presentation slides</a>';
+        } else {
+          dnHtml += '<p>The slide is not allowed to be downloaded</p>';
         }
-        dnDiv.innerHTML=dnHtml;
+        dnDiv.innerHTML = dnHtml;
         childDiv.appendChild(dnDiv);
 
         parentDiv.appendChild(childDiv);
         parentNode.appendChild(parentDiv);
-        
+
       }
     }
 
